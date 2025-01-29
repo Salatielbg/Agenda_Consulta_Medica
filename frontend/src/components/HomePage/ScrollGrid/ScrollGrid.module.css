@@ -1,0 +1,29 @@
+.scrollGrid{
+    padding: 0.5rem 2rem;
+    display: flex;
+    margin: 0.6rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+.scrollGridImage>img{
+    width: 5rem;
+    height: 5rem;
+}
+.scrollGridContent{
+    margin-left: 1.5rem;
+}
+.scrollGridContent>h4{
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+.scrollGridContent>p{
+    background: url('../../../assets/images//Icons/estrela.png') no-repeat;
+    background-size: 1rem;
+    padding: 0 1.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

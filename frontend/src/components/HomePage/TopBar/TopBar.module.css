@@ -1,0 +1,38 @@
+.topbar{
+    background-color: #46c1ff;
+    color: white;
+    padding: 2rem;
+}
+
+.Userinfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.Userinfo>h3{
+    opacity: 0.8;
+}
+
+.Userinfo>button{
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: #1b94d15c;
+}
+.Userinfo>button:hover{
+    background-color: #1b94d1;
+    cursor: pointer;
+  
+}
+.Userinfo>button>img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.searchBar>h1{
+    margin-bottom: 1.5rem;
+}

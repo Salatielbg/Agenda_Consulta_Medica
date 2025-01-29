@@ -1,0 +1,18 @@
+button{
+    background-color: white;
+}
+.AvailableDays>button{
+    border-radius: 100%;
+    border: 1px solid #e0e0e0;
+    width: 4rem;
+    height: 4rem;
+}
+.AvailableDays>button:hover{
+    background-color: #46c1ff;
+    cursor: pointer;
+    color: white;
+}
+.selected{
+    background-color: #46c1ff;
+    color: white;
+}

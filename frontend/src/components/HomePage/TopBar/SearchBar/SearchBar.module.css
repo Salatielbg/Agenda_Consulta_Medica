@@ -1,0 +1,14 @@
+.SearchBar{
+    display: flex;
+}
+.SearchBar>input {
+    background: url(../../../../assets/images/Icons/search-analytics.png) no-repeat;
+    background-size: 1.3rem;
+    background-position: 2rem;
+    background-color: white;
+    width: 100%;
+    padding: 1rem 4rem;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 5rem;
+}

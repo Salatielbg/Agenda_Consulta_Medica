@@ -1,0 +1,23 @@
+button{
+    background-color: white;
+}
+.AvailableHours>button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid #e0e0e0;
+    width: 5rem;
+    height: 2rem;
+}
+
+.AvailableHours>button:hover{
+    background-color: #46c1ff;
+    cursor: pointer;
+    color: white;
+}
+.selected{
+    background-color: #46c1ff;
+    color: white;
+}

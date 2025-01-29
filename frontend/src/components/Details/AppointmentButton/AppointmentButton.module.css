@@ -1,0 +1,19 @@
+.AppointmentButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+.AppointmentButton>button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 2rem;
+    border: 1px solid #e0e0e0;
+    width: 20rem;
+    height: 3rem;
+    background-color: #46c1ff;
+    color: white;
+}
