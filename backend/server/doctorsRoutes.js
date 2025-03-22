@@ -37,6 +37,7 @@ doctorsRoutes.route('/doctors/').post(async (request, response) => {
         formacao: request.body.formacao,
         biografia: request.body.biografia,
         especialidades: request.body.especialidades,
+        avaliacao: request.body.avaliacao,
     };
     let data = await db.collection('Doctors').insertOne(mongoObject)
     response.json(data)
@@ -51,6 +52,7 @@ doctorsRoutes.route('/doctors/:id').put(async (request, response) => {
             formacao: request.body.formacao,
             biografia: request.body.biografia,
             especialidades: request.body.especialidades,
+            avaliacao: request.body.avaliacao,
         }
     };
     let data = await db.collection('Doctors').updateOne({_id: new ObjectId(request.params.id)}, mongoObject)

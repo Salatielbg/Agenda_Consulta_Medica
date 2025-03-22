@@ -1,14 +1,20 @@
 import BackArrow from '../../../assets/images/Icons/voltar.png'
 import styles from './TopBar.module.css'
 import { Link } from "react-router";
-export default function TopBar(){
+import PropTypes from 'prop-types';
+
+TopBar.propTypes = {
+    name: PropTypes.string
+}
+
+export default function TopBar({name}){
     return(
     
         <div className={styles.TopBar}>
             <Link to='/'>
                 <img src={BackArrow} alt="Voltar" />
             </Link>
-            <h3>Detail Doctor</h3>
+            <h3>{name}</h3>
         </div>
     
 

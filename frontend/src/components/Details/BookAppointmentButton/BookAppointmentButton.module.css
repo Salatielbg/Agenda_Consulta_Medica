@@ -17,3 +17,6 @@
     background-color: #46c1ff;
     color: white;
 }
+.AppointmentButton>button:hover{
+    background-color: darkblue;
+}

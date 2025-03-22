@@ -15,10 +15,10 @@ export default function Categories({selectedCategory, handleButtonClickCategory}
         <div className={styles.categories}>
             <h3>Categories</h3>
             <div className={styles.categoriesIcons}>
-                <CategoriesIcon icon={CardiologyIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Medicina" />
-                <CategoriesIcon icon={PharmaceuticalIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Farmácia" />
-                <CategoriesIcon icon={DentistIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Odontologia" />
-                <CategoriesIcon icon={OrthopedistIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Ortopedia" />
+                <CategoriesIcon icon={CardiologyIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Cardiologista" />
+                <CategoriesIcon icon={PharmaceuticalIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Farmacêutico" />
+                <CategoriesIcon icon={DentistIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Odontologista" />
+                <CategoriesIcon icon={OrthopedistIcon} handleButtonClickCategory={handleButtonClickCategory} selectedCategory={selectedCategory} title="Ortopedista" />
             </div>
         </div>
     )

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { getDoctors, createDoctor } from "../../api";
-
 export function Database() {
   const [doctors, setDoctors] = useState([]);
 
@@ -170,11 +169,13 @@ export function Database() {
 
   return (
     <>
+    
       <button onClick={populateDatabase}>
         Popular Banco de Dados
       </button>
+      
 
-      <h2>Médicos cadastrados:</h2>
+      <h2>Médicos cadastradossad:</h2>
       <ul>
         {doctors.map((doctor, index) => (
           <li key={index}>

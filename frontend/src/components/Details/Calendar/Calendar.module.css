@@ -4,3 +4,24 @@
     justify-content: space-around;
     margin-top: 1rem;
 }
+.CalendarHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.CalendarHeader>select{
+    appearance: none;  /* Remove o estilo padrão do select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border: none;
+    padding: 8px 32px 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-image: url('../../../assets//images//Icons/seta-direita.png'); /* Substitua por sua seta personalizada */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}

@@ -1,23 +1,40 @@
 import AvailableDays from "./AvailableDays/AvailableDays";
 import styles from './Calendar.module.css';
 import PropTypes from 'prop-types';
+import useSelectedDay from "../../../hooks/useSelectedDay";
 
 Calendar.propTypes = {
+    handleChangeMonth: PropTypes.func,
     handleButtonClickDay: PropTypes.func,
+    selectedMonth: PropTypes.number,
     selectedDay: PropTypes.array
 }
-export default function Calendar({handleButtonClickDay, selectedDay}) {
+export default function Calendar({ handleChangeMonth, handleButtonClickDay, selectedMonth, selectedDay}) {
+    const { datasDisponiveis } = useSelectedDay();
     return(
         <div>
-            <h2>Calendar</h2>
+            <div className={styles.CalendarHeader}>
+                <h2>Calendar</h2>
+                <select id="mes" value={selectedMonth} onChange={handleChangeMonth}>
+                    {Array.from({ length: 12 }, (_, i) => (
+                        <option key={i + 1} value={i + 1}>
+                            {new Date(0, i).toLocaleString("en-US", { month: "long" }).charAt(0).toUpperCase() + new Date(0, i).toLocaleString("en-US", { month: "long" }).slice(1)}
+                        </option>
+                    ))}
+                </select>
+                
+            </div>
             <div className={styles.AvailableDays}>
-                <AvailableDays selectedDay={selectedDay} handleButtonClickDay={handleButtonClickDay} buttonNum='1' datemonth="12" dateweek="Mon"/>
-                <AvailableDays selectedDay={selectedDay} handleButtonClickDay={handleButtonClickDay} buttonNum='2' datemonth="13" dateweek="Tue"/>
-                <AvailableDays selectedDay={selectedDay} handleButtonClickDay={handleButtonClickDay} buttonNum='3' datemonth="14" dateweek="Wed"/>
-                <AvailableDays selectedDay={selectedDay} handleButtonClickDay={handleButtonClickDay} buttonNum='4' datemonth="15" dateweek="Thu"/>
+                {datasDisponiveis[selectedMonth]?.map((data, index) => (
+                        <AvailableDays
+                            key={index}
+                            selectedDay={selectedDay}
+                            handleButtonClickDay={handleButtonClickDay}
+                            datemonth={data.day}
+                            dateweek={data.week}
+                        />
+                    ))}
             </div>
         </div>
-        
-
     )
 }

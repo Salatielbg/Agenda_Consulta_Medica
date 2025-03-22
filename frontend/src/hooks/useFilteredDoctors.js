@@ -15,8 +15,8 @@ export default function useFilteredDoctors() {
     }, []);
 
     const filteredDoctors = doctors.filter((doctor) => {
-        const matchesName = doctor.nome.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory = selectedCategory ? doctor.formacao.toLowerCase() === selectedCategory.toLowerCase() : true;
+        const matchesName = doctor.nome && doctor.nome.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesCategory = selectedCategory ? doctor.formacao && doctor.formacao.toLowerCase() === selectedCategory.toLowerCase() : true;
         return matchesName && matchesCategory;
     });
 

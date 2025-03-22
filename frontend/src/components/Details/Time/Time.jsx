@@ -1,19 +1,31 @@
 import AvailableHours from './AvailableHours/AvailableHours';
 import styles from './Time.module.css';
 import PropTypes from 'prop-types';
+import useSelectedHour from '../../../hooks/useSelectedHour';
 
 Time.propTypes = {
     handleButtonClickHour: PropTypes.func,
-    selectedHour: PropTypes.array
+    selectedHour: PropTypes.array,
+    selectedDay: PropTypes.string
 }
-export default function Time({handleButtonClickHour, selectedHour}){
+export default function Time({handleButtonClickHour, selectedHour, selectedDay}){
+    const { getAvailableHours } = useSelectedHour();
+
+    const availableHours = getAvailableHours(selectedDay);
+    
     return(
         <div>
-            <h2>Time</h2>
+            <h2>Time</h2> 
             <div className={styles.AvailableHours}>
-                <AvailableHours selectedHour={selectedHour} handleButtonClickHour={handleButtonClickHour} buttonNum='1' hour='09:00' period='AM'/>
-                <AvailableHours selectedHour={selectedHour} handleButtonClickHour={handleButtonClickHour} buttonNum='2' hour='11:00' period='AM'/>
-                <AvailableHours selectedHour={selectedHour} handleButtonClickHour={handleButtonClickHour} buttonNum='3' hour='03:00' period='PM'/>
+                {availableHours.map((horario, index) => (
+                            <AvailableHours
+                                key={index}
+                                selectedHour={selectedHour}
+                                handleButtonClickHour={() => handleButtonClickHour(horario.hour)}
+                                hour={horario.hour}
+                                period={horario.period}
+                            />
+                        ))}
             </div>
         </div>
     )

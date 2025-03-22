@@ -5,9 +5,11 @@ import cardiologista from '../../assets/images/Profile/cirurgiaoprofile.png'
 import DoctorInfo from "./DoctorInfo/DoctorInfo";
 import Calendar from "./Calendar/Calendar";
 import Time from './Time/Time';
-import AppointmentButton from './AppointmentButton/AppointmentButton';
+import AppointmentButton from './BookAppointmentButton/BookAppointmentButton';
+import AppointmentWindow from './BookAppointmentButton/BookAppointmentWindow/BookAppointmentWindow';
 import useSelectedHour from '../../hooks/useSelectedHour';
 import useSelectedDay from '../../hooks/useSelectedDay';
+import useSelectedMonth from '../../hooks/useSelectedMonth';
 import { getDoctor } from '../../api';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -17,7 +19,9 @@ import { useEffect, useState } from 'react';
 export function Details(){
     const { selectedDay, handleButtonClickDay } = useSelectedDay();
     const { selectedHour, handleButtonClickHour } = useSelectedHour();
+    const { selectedMonth, handleChangeMonth } = useSelectedMonth();
     const [doctor, setDoctor] = useState({});
+    const [isOpen, setIsOpen] = useState(false);
 
     let params = useParams();
     let id = params.id;
@@ -28,25 +32,25 @@ export function Details(){
             setDoctor(data);
         }
         loadDoctor();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const handleSubmit = () => {
-        // Handle the submit logic here with selectedButtons
-        console.log('Selected buttons:', selectedHour, selectedDay);
-    };
     return(
         <div className={styles.Details}>
-            <TopBar />
+            <TopBar name="Details"/>
             <ScrollGrid 
                     image={cardiologista}
                     name={doctor.nome}
                     specialty={doctor.formacao}
-                    rating="4.9"
+                    rating={doctor.avaliacao}
             />
             <DoctorInfo biografia={doctor.biografia} especialidades={doctor.especialidades}/>
-            <Calendar handleButtonClickDay={handleButtonClickDay} selectedDay={selectedDay}/>
-            <Time handleButtonClickHour={handleButtonClickHour} selectedHour={selectedHour}/>
-            <AppointmentButton handleSubmit={handleSubmit}/>
+            <Calendar handleChangeMonth={handleChangeMonth} handleButtonClickDay={handleButtonClickDay} selectedMonth={selectedMonth} selectedDay={selectedDay}/>
+            {selectedDay && (
+                <Time handleButtonClickHour={handleButtonClickHour} selectedHour={selectedHour} selectedDay={selectedDay}/>
+            )}
+            <AppointmentButton onClick={() => setIsOpen(true)} selectedDay={selectedDay} selectedHour={selectedHour} selectedMonth={selectedMonth} patientName='Steven'/>
+            <AppointmentWindow isOpen={isOpen} onClose={() => setIsOpen(false)} />
         </div>
     )
 }
