@@ -3,7 +3,7 @@ import CategoriesIcon from './CategoriesIcons/CategoriesIcon';
 import CardiologyIcon from '../../../assets/images/Categories/Cardiologista.png';
 import PharmaceuticalIcon from '../../../assets/images/Categories/Farmaceutico.png';
 import DentistIcon from '../../../assets/images/Categories/Dentista.png';
-import OrthopedistIcon from '../../../assets/images/Categories/ortopedista.png';
+import OrthopedistIcon from '../../../assets/images/Categories/Ortopedista.png';
 import PropTypes from 'prop-types';
 
 Categories.propTypes = {
